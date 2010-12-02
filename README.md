@@ -1,6 +1,6 @@
 jroutes
 =====================================================
-This plugin enables named routes of your rails application in your javascript.
+This plugin enables your rails i18n strings in your javascript.
 
 Requirements
 =====

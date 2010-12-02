@@ -6,6 +6,10 @@ J18n.setup do |config|
   #
   config.output_path = "public/javascripts/j18n.js"
   
+  # Set the path where the plugin wirtes the locales to
+  #
+  config.i18n_path = "public/javascripts/j18n.locales.js"
+  
   # If true the javascript routes will be generated on application startup
   #
   config.build_on_boot = false

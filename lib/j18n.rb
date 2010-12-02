@@ -3,9 +3,12 @@ module J18n
 
   mattr_accessor :source_path
   @@source_path = File.join(File.dirname(__FILE__), 'javascripts', 'j18n.js')
-    
+
   mattr_accessor :output_path
   @@output_path = "public/javascripts/j18n.js"
+      
+  mattr_accessor :i18n_path
+  @@i18n_path = "public/javascripts/j18n.locales.js"
 
   mattr_accessor :build_on_boot
   @@build_on_boot = false
@@ -33,24 +36,16 @@ module J18n
   
   class Builder
     def self.build
+      copy_file(J18n.source_path, J18n.output_path) unless File.exists?(J18n.output_path)
+      
       locales = I18n.backend.instance_eval do
         init_translations unless initialized?
         translations.to_json
       end
-    
-      js_source = J18n.source_path
-      js_target = J18n.output_path
-      
-      File.delete(js_target) if File.exists?(js_target)
-      
-      File.open(js_target, 'w') do |f|
-        File.open(js_source, "r") do |file|
-          while (line = file.gets)
-            f.print(line)
-          end
-        end
-        f.print("\n")
-        f.print(locales.to_s)
+      File.delete(J18n.i18n_path) if File.exists?(J18n.i18n_path)
+      File.open(J18n.i18n_path, 'w') do |f|
+        f.print("I18n.dictionary = #{locales.to_s};\n")
+        f.print("I18n.locale = '#{I18n.default_locale.to_s}'")
       end
     end
   end
