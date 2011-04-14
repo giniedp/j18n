@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Alexander Gr\303\244fenstein"]
-  s.date = %q{2010-12-02}
+  s.date = %q{2011-04-14}
   s.description = %q{}
   s.email = %q{giniedp@online.de}
   s.extra_rdoc_files = [
@@ -28,19 +28,20 @@ Gem::Specification.new do |s|
      "lib/generators/regenerate_generator.rb",
      "lib/j18n.rb",
      "lib/javascripts/j18n.js",
+     "lib/javascripts/j18n.min.js",
      "lib/templates/initializer.rb"
   ]
   s.homepage = %q{http://github.com/giniedp/j18n}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.7}
+  s.rubygems_version = %q{1.3.6}
   s.summary = %q{Rails i18n for javascript}
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
-    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_development_dependency(%q<thoughtbot-shoulda>, [">= 0"])
     else
       s.add_dependency(%q<thoughtbot-shoulda>, [">= 0"])
