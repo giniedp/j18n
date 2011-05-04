@@ -1,4 +1,4 @@
-jroutes
+j18n
 =====================================================
 This plugin enables your rails i18n strings in your javascript.
 
@@ -34,11 +34,11 @@ Modify that file with your settings
       config.build_on_boot = false
     end
 
-Include the javascript in your application layout or wherever you need the routes
+Include the javascript in your application layout or wherever you need the i18n
 
     = javascript_include_tag 'j18n'
 
-You can also use a generator to build the route file
+You can also use a generator to build the i18n file
 
     rails generate j18n:regenerate
     
