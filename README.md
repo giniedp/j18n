@@ -44,9 +44,16 @@ You can also use a generator to build the i18n file
     
 Usage
 =====
+After you run the generator you can use the translate method in your javascript 
+as you are used from rails
 
+    I18n.t("path.to.locale");
+    
+This will lookup a value at "en.path.to.locale". "en" is the default locale. If
+you want to change it, use
+
+    I18n.locale = "de";
 
 Copyright
 =====
-
 Copyright (c) 2010 Alexander Gräfenstein. See LICENSE for details.
