@@ -1,3 +1,5 @@
+require "fileutils"
+
 module J18n
   pwd = File.expand_path(File.dirname(__FILE__))
 
@@ -35,8 +37,10 @@ module J18n
   end
   
   class Builder
+    include FileUtils
+    
     def self.build
-      copy_file(J18n.source_path, J18n.output_path) unless File.exists?(J18n.output_path)
+      FileUtils.copy_file(J18n.source_path, J18n.output_path) unless File.exists?(J18n.output_path)
       
       locales = I18n.backend.instance_eval do
         init_translations unless initialized?
