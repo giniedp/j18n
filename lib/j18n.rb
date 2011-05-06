@@ -48,8 +48,11 @@ module J18n
       end
       File.delete(J18n.i18n_path) if File.exists?(J18n.i18n_path)
       File.open(J18n.i18n_path, 'w') do |f|
-        f.print("I18n.dictionary = #{locales.to_s};\n")
-        f.print("I18n.locale = '#{I18n.default_locale.to_s}';")
+        f.print("(function(){")
+        f.print("  var I18n = this.I18n;")
+        f.print("  I18n.dictionary = #{locales.to_s};\n")
+        f.print("  I18n.locale = '#{I18n.default_locale.to_s}';")
+        f.print("}());")
       end
     end
   end
